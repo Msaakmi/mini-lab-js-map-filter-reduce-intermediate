@@ -15,6 +15,7 @@
 //   celsiusToFahrenheit([-40]) → [-40]
 function celsiusToFahrenheit(temps) {
   // Tu codigo aqui
+  return temps.map(temp => temp * 9/5 + 32);
 }
 
 // 2. addFullName(people)
@@ -26,6 +27,13 @@ function celsiusToFahrenheit(temps) {
 //   → [{ firstName: "Ana", lastName: "Garcia", fullName: "Ana Garcia" }]
 function addFullName(people) {
   // Tu codigo aqui
+  return people.map(p => {
+    return {
+      firstName: p.firstName,
+      lastName: p.lastName,
+      fullName: `${p.firstName} ${p.lastName}`
+    }
+  })
 }
 
 // 3. getAcronyms(phrases)
@@ -37,6 +45,9 @@ function addFullName(people) {
 //   getAcronyms(["do it yourself"]) → ["DIY"]
 function getAcronyms(phrases) {
   // Tu codigo aqui
+  return phrases.map(phrase => {
+    return phrase.split(" ").map(word => word[0].toUpperCase()).join("");
+  })
 }
 
 // 4. applyDiscount(products, discount)
