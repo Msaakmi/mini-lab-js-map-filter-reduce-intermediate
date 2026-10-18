@@ -61,6 +61,13 @@ function getAcronyms(phrases) {
 //   → [{ name: "Cafe", price: 2.5, originalPrice: 5 }]
 function applyDiscount(products, discount) {
   // Tu codigo aqui
+  return products.map(product => {
+    return {
+      name: product.name,
+      price: product.price - (product.price*discount/100),
+      originalPrice: product.price
+    }
+  })
 }
 
 
@@ -76,6 +83,7 @@ function applyDiscount(products, discount) {
 //   → [{ name: "A", stock: 5 }]
 function getInStock(products) {
   // Tu codigo aqui
+  return products.filter(product => product.stock > 0)
 }
 
 // 6. getUniqueValues(array)
@@ -87,6 +95,7 @@ function getInStock(products) {
 //   getUniqueValues(["a", "b", "a", "c"]) → ["a", "b", "c"]
 function getUniqueValues(array) {
   // Tu codigo aqui
+  return array.filter((item, index) => array.indexOf(item) === index)
 }
 
 // 7. searchByName(items, query)
@@ -97,6 +106,7 @@ function getUniqueValues(array) {
 //   → [{ name: "JavaScript" }, { name: "Java" }]
 function searchByName(items, query) {
   // Tu codigo aqui
+  return items.filter((item) => item.name.toLowerCase().includes(query.toLowerCase()))
 }
 
 // 8. getInRange(numbers, min, max)
@@ -107,6 +117,7 @@ function searchByName(items, query) {
 //   getInRange([1, 2, 3, 4, 5], 2, 4) → [2, 3, 4]
 function getInRange(numbers, min, max) {
   // Tu codigo aqui
+  return numbers.filter(number => number >= min && number <= max)
 }
 
 
@@ -123,6 +134,13 @@ function getInRange(numbers, min, max) {
 //   getLongestString(["ab", "cd"]) → "ab"
 function getLongestString(strings) {
   // Tu codigo aqui
+  return strings.reduce((acc, string) => {
+    if(string.length > acc.length){
+      acc = string
+    }
+    return acc
+
+  }, "")
 }
 
 // 10. buildObject(keys, values)
@@ -134,6 +152,10 @@ function getLongestString(strings) {
 //   buildObject(["a", "b", "c"], [1, 2, 3]) → { a: 1, b: 2, c: 3 }
 function buildObject(keys, values) {
   // Tu codigo aqui
+  return keys.reduce((acc, key, i) => {
+    acc[key] = values[i]
+    return acc
+  }, {})
 }
 
 // 11. calculateAverage(numbers)
@@ -145,6 +167,10 @@ function buildObject(keys, values) {
 //   calculateAverage([]) → 0
 function calculateAverage(numbers) {
   // Tu codigo aqui
+  return numbers.reduce((acc, number) => {
+    acc += number/numbers.length
+    return acc
+  }, 0)
 }
 
 // 12. mergeObjects(arrayOfObjects)
@@ -156,6 +182,9 @@ function calculateAverage(numbers) {
 //   mergeObjects([{ x: 10 }, { y: 20 }]) → { x: 10, y: 20 }
 function mergeObjects(arrayOfObjects) {
   // Tu codigo aqui
+  return arrayOfObjects.reduce((acc, obj) => {
+    
+  }, {})
 }
 
 
