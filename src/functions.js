@@ -183,7 +183,10 @@ function calculateAverage(numbers) {
 function mergeObjects(arrayOfObjects) {
   // Tu codigo aqui
   return arrayOfObjects.reduce((acc, obj) => {
-    
+    for (let key in obj){
+      acc[key] = obj[key]
+    }
+    return acc
   }, {})
 }
 
